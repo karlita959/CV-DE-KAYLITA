@@ -1,0 +1,4 @@
+create policy "Anyone can read cv files" on storage.objects for select to anon, authenticated using (bucket_id = 'cv-files');
+create policy "Admin uploads cv files" on storage.objects for insert to authenticated with check (bucket_id = 'cv-files' and public.has_role(auth.uid(), 'admin'));
+create policy "Admin updates cv files" on storage.objects for update to authenticated using (bucket_id = 'cv-files' and public.has_role(auth.uid(), 'admin'));
+create policy "Admin deletes cv files" on storage.objects for delete to authenticated using (bucket_id = 'cv-files' and public.has_role(auth.uid(), 'admin'));

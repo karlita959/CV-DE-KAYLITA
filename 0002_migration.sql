@@ -1,0 +1,1 @@
+update public.cv_profile set headline = 'Ingeniería en Administración de Sistemas' where id = 1;
